@@ -1,6 +1,20 @@
 # recorder-mp3
+
+## Update
+- (18/7/3)add record timer
+
 ## Introduction
 this sample demonstrates create a recording by mp3lame
+
+## Usage
+```
+        mRecorder = MP3Recorder(filePath)
+        mRecorder?.setOnRecordUpdateListener { decibel, millis ->
+            Log.d("xy=====>", millis.toString())
+            tv_time.setText(RecordUtils.format(millis))
+        }
+        mRecorder?.start()
+```
 
 ## Build mp3lame
 - [libmp3lame-android](https://github.com/xieyangxuejun/libmp3lame-android)
