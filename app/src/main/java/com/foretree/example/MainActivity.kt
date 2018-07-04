@@ -4,8 +4,10 @@ import android.Manifest
 import android.os.Bundle
 import android.os.Environment
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import com.foretree.media.MP3Recorder
+import com.foretree.media.RecordUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import pub.devrel.easypermissions.EasyPermissions
 import pub.devrel.easypermissions.PermissionRequest
@@ -38,6 +40,10 @@ class MainActivity : AppCompatActivity() {
         val filePath = mDir + "/" + Calendar.getInstance().timeInMillis + ".mp3"
         tv.setText(filePath)
         mRecorder = MP3Recorder(filePath)
+        mRecorder?.setOnRecordUpdateListener { decibel, millis ->
+            Log.d("xy=====>", millis.toString())
+            tv_time.setText(RecordUtils.format(millis))
+        }
         mRecorder?.start()
     }
 
