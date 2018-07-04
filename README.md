@@ -1,5 +1,7 @@
 # recorder-mp3
 
+[![](https://jitpack.io/v/xieyangxuejun/recorder-mp3.svg)](https://jitpack.io/#xieyangxuejun/recorder-mp3)
+
 ## Update
 - (18/7/3)add record timer
 
