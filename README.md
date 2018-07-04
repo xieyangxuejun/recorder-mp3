@@ -16,12 +16,14 @@ allprojects {
 			...
 			maven { url 'https://jitpack.io' }
 		}
-}```
+}
+```
 
 ```
 dependencies {
 	        implementation 'com.github.xieyangxuejun:recorder-mp3:1.0.0'
-}```
+}
+```
 
 ```
 mRecorder = MP3Recorder(filePath)
