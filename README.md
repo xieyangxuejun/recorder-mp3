@@ -12,16 +12,16 @@ this sample demonstrates create a recording by mp3lame
 import this
 ```
 allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
 }
 ```
 
 ```
 dependencies {
-	        implementation 'com.github.xieyangxuejun:recorder-mp3:1.0.0'
+	implementation 'com.github.xieyangxuejun:recorder-mp3:1.0.0'
 }
 ```
 
