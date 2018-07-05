@@ -15,6 +15,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
+/**
+ * create by silen
+ */
 public class MP3Recorder {
     private int mSampleRate = 44100;
     private int mOutChannel = 2;
@@ -29,7 +32,6 @@ public class MP3Recorder {
     private long mTimingMillis;
 
     //listener
-    private OnRecordListener mListener;
     private OnRecordUpdateListener mUpdateListener;
 
     private Handler mHandler = new Handler(Looper.getMainLooper()) {
@@ -38,13 +40,12 @@ public class MP3Recorder {
             super.handleMessage(msg);
             switch (msg.what) {
                 case MSG_REC_STARTED: {
-                    if (mListener != null) mListener.onRecordStart();
                     mTimingMillis = 0L;
                     sendRecordMessage(MSG_REC_UPDATE, TIME_INTERVAL_MILLISECOND);
                     break;
                 }
                 case MSG_REC_STOPPED: {
-                    if (mListener != null) mListener.onRecordStop(mSaveFilePath);
+                    if (mUpdateListener != null) mUpdateListener.onRecordFinish(mSaveFilePath);
                     removeMessages(MSG_REC_UPDATE);
                     break;
                 }
@@ -135,10 +136,6 @@ public class MP3Recorder {
     public MP3Recorder(String filePath) {
         this.mSaveFilePath = filePath;
         this.mSampleRate = 44100;
-    }
-
-    public void setOnRecordListener(OnRecordListener listener) {
-        this.mListener = listener;
     }
 
 

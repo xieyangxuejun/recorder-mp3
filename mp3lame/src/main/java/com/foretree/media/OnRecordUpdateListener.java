@@ -5,4 +5,5 @@ package com.foretree.media;
  */
 public interface OnRecordUpdateListener {
     void onRecordUpdate(double decibel, long millis);
+    void onRecordFinish(String saveFile);
 }
